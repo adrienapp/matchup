@@ -1,154 +1,104 @@
 <!DOCTYPE html>
 <html lang="fr" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MatchUp+ | L'application de rencontres Tennis</title>
-    <meta name="description" content="MatchUp+ : Trouvez des partenaires de tennis, organisez des matchs, suivez vos stats et progressez. L'appli sécurisée pour la communauté tennis.">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            blue: '#0088FF',    /* Ton bleu primaire */
-                            yellow: '#FFD700',  /* Ton jaune secondaire */
-                            dark: '#0f172a',    /* Fond sombre élégant */
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MatchUp+ | L'application de rencontres Tennis</title>
+<meta name="description" content="MatchUp+ : Trouvez des partenaires de tennis, organisez des matchs, suivez vos stats et progressez.">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
 
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        
-        /* Animation du dégradé de texte */
-        .text-gradient {
-            background: linear-gradient(to right, #0088FF, #0066CC);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        brand: {
+          blue: '#0088FF',
+          yellow: '#FFD700',
+          dark: '#0f172a',
         }
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+      }
+    }
+  }
+}
+</script>
 
-        /* OPTIMISATION RENDEZ-VOUS IMAGES (Netteté & Anti-aliasing) */
-        .img-fix {
-            /* Force la netteté sur Chrome/Safari */
-            image-rendering: -webkit-optimize-contrast;
-            /* Empêche le scintillement des bords lors de la rotation */
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            /* Force l'accélération matérielle */
-            transform: translateZ(0);
-        }
-    </style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+body { font-family: 'Inter', sans-serif; }
+
+.text-gradient {
+  background: linear-gradient(to right, #0088FF, #0066CC);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* RENDU IMAGE PROPRE (APPLE SAFE) */
+.apple-img {
+  image-rendering: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* OMBRE APPLE */
+.apple-shadow {
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+</style>
 </head>
+
 <body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
 
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="flex items-center gap-3 group">
-                <img src="assets/logo.png" alt="Logo MatchUp" class="w-10 h-10 rounded-xl shadow-lg group-hover:scale-105 transition object-cover bg-brand-blue">
-                <span class="text-2xl font-bold text-slate-900 tracking-tight">MatchUp<span class="text-brand-blue">+</span></span>
-            </a>
+<!-- HEADER -->
+<header class="pt-32 pb-20 lg:pt-40 lg:pb-40 overflow-hidden bg-white">
+<div class="container mx-auto px-6">
+<div class="flex flex-col lg:flex-row items-center gap-12">
 
-            <div class="hidden md:flex items-center gap-8 font-medium text-sm">
-                <a href="#features" class="text-slate-600 hover:text-brand-blue transition">Fonctionnalités</a>
-                <a href="#premium" class="text-slate-600 hover:text-brand-blue transition">Abonnement</a>
-                <a href="#clubs" class="text-slate-600 hover:text-brand-blue transition">Clubs Partenaires</a>
-                <a href="#about" class="text-slate-600 hover:text-brand-blue transition">À propos</a>
-                <a href="#download" class="px-5 py-2.5 bg-brand-blue text-white rounded-full hover:bg-blue-600 transition shadow-lg shadow-blue-500/30 font-semibold">
-                    Télécharger l'App
-                </a>
-            </div>
-            
-            <button id="mobile-menu-btn" class="md:hidden text-2xl text-slate-800 focus:outline-none p-2">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
+<!-- TEXTE -->
+<div class="lg:w-5/12 text-center lg:text-left z-10">
+<h1 class="text-5xl lg:text-7xl font-bold mb-6 text-slate-900">
+Trouvez votre<br>
+<span class="text-gradient">partenaire idéal.</span>
+</h1>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full left-0 shadow-lg top-[72px]">
-            <div class="flex flex-col p-6 space-y-4 font-medium text-center">
-                <a href="#features" class="mobile-link text-slate-600 hover:text-brand-blue py-3 border-b border-slate-50">Fonctionnalités</a>
-                <a href="#premium" class="mobile-link text-slate-600 hover:text-brand-blue py-3 border-b border-slate-50">Abonnement</a>
-                <a href="#clubs" class="mobile-link text-slate-600 hover:text-brand-blue py-3 border-b border-slate-50">Espace Clubs</a>
-                <a href="#about" class="mobile-link text-slate-600 hover:text-brand-blue py-3 border-b border-slate-50">À propos</a>
-                <a href="#download" class="mobile-link text-brand-blue font-bold py-3">Télécharger l'App</a>
-            </div>
-        </div>
-    </nav>
+<p class="text-xl text-slate-500 mb-10 max-w-lg">
+MatchUp+ connecte les joueurs locaux, organise vos matchs et booste votre progression.
+</p>
+</div>
 
-    <header class="pt-32 pb-20 lg:pt-40 lg:pb-40 overflow-hidden bg-white">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-0">
-                
-                <div class="lg:w-5/12 text-center lg:text-left z-10 lg:pr-10">
-                    <div class="inline-flex items-center gap-2 px-4 py-2 mb-8 bg-blue-50 text-brand-blue rounded-full text-sm font-bold border border-blue-100">
-                        <span class="relative flex h-3 w-3">
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                          <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-blue"></span>
-                        </span>
-                        La communauté Tennis n°1 en France
-                    </div>
-                    
-                    <h1 class="text-5xl lg:text-7xl font-bold leading-tight mb-6 text-slate-900">
-                        Trouvez votre <br>
-                        <span class="text-gradient">partenaire idéal.</span>
-                    </h1>
-                    
-                    <p class="text-xl text-slate-500 mb-10 leading-relaxed max-w-lg mx-auto lg:mx-0">
-                        MatchUp+ connecte les joueurs locaux, organise vos matchs et booste votre progression. Sécurité, convivialité et performance.
-                    </p>
-                    
-                    <div id="download" class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a href="#" target="_blank" class="bg-slate-900 text-white px-8 py-4 rounded-xl flex items-center justify-center gap-4 hover:bg-slate-800 transition hover:-translate-y-1 shadow-xl group">
-                            <i class="fa-brands fa-apple text-3xl group-hover:text-brand-blue transition"></i>
-                            <div class="text-left">
-                                <div class="text-[10px] uppercase tracking-wider text-slate-400">Télécharger sur</div>
-                                <div class="font-bold text-lg leading-none">App Store</div>
-                            </div>
-                        </a>
-                        <a href="#" target="_blank" class="bg-slate-900 text-white px-8 py-4 rounded-xl flex items-center justify-center gap-4 hover:bg-slate-800 transition hover:-translate-y-1 shadow-xl group">
-                            <i class="fa-brands fa-google-play text-3xl group-hover:text-brand-blue transition"></i>
-                            <div class="text-left">
-                                <div class="text-[10px] uppercase tracking-wider text-slate-400">Disponible sur</div>
-                                <div class="font-bold text-lg leading-none">Google Play</div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+<!-- SCREENSHOTS -->
+<div class="lg:w-7/12 relative flex justify-center items-center mt-16 lg:mt-0">
 
-                <div class="lg:w-7/12 relative flex justify-center items-center mt-16 lg:mt-0">
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-blue/10 rounded-full blur-3xl -z-10"></div>
-                    
-                    <div class="relative w-full h-[600px] lg:h-[750px] flex items-center justify-center">
-                        
-                        <div class="absolute z-0 transform -translate-x-10 lg:-translate-x-16 -rotate-6 transition duration-500 hover:z-20 hover:scale-105 hover:rotate-0 origin-bottom-left will-change-transform">
-                            <img src="assets/screenshot1.png" alt="App Screen 1" 
-                                 class="w-64 lg:w-[340px] h-auto rounded-[2.5rem] shadow-2xl block object-cover ring-1 ring-black/10 img-fix">
-                        </div>
+<div class="relative w-full h-[600px] lg:h-[750px] flex items-center justify-center gap-12">
 
-                        <div class="absolute z-10 transform translate-x-6 lg:translate-x-12 rotate-3 transition duration-500 hover:scale-105 hover:rotate-0 origin-bottom-right will-change-transform">
-                            <img src="assets/screenshot2.png" alt="App Screen 2" 
-                                 class="w-64 lg:w-[340px] h-auto rounded-[2.5rem] shadow-2xl block object-cover ring-1 ring-black/10 img-fix">
-                        </div>
+<img
+src="assets/screenshot1.png"
+alt="App Screen 1"
+width="340"
+height="680"
+class="rounded-[44px] apple-shadow apple-img"
+/>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+<img
+src="assets/screenshot2.png"
+alt="App Screen 2"
+width="340"
+height="680"
+class="rounded-[44px] apple-shadow apple-img"
+/>
 
+</div>
+</div>
+
+</div>
+</div>
+</header>
     <section id="features" class="py-24 bg-slate-50 relative">
         <div class="container mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-20">
