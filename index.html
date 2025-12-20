@@ -1,104 +1,167 @@
 <!DOCTYPE html>
 <html lang="fr" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MatchUp+ | L'application de rencontres Tennis</title>
-<meta name="description" content="MatchUp+ : Trouvez des partenaires de tennis, organisez des matchs, suivez vos stats et progressez.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MatchUp+ | L'application de rencontres Tennis</title>
+    <meta name="description" content="MatchUp+ : Trouvez des partenaires de tennis, organisez des matchs, suivez vos stats et progressez.">
 
-<script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        brand: {
-          blue: '#0088FF',
-          yellow: '#FFD700',
-          dark: '#0f172a',
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: '#0088FF',
+              yellow: '#FFD700',
+              dark: '#0f172a',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
         }
-      },
-      fontFamily: {
-        sans: ['Inter', 'sans-serif'],
       }
     }
-  }
-}
-</script>
+    </script>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<style>
-body { font-family: 'Inter', sans-serif; }
+    <style>
+    body { font-family: 'Inter', sans-serif; }
 
-.text-gradient {
-  background: linear-gradient(to right, #0088FF, #0066CC);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+    /* Dégradé de texte */
+    .text-gradient {
+      background: linear-gradient(to right, #0088FF, #0066CC);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-/* RENDU IMAGE PROPRE (APPLE SAFE) */
-.apple-img {
-  image-rendering: auto;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
+    /* RENDU IMAGE PROPRE (APPLE SAFE) */
+    .apple-img {
+      image-rendering: auto; /* Laisse le navigateur gérer le lissage */
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      transform: translateZ(0); /* Force l'accélération GPU */
+    }
 
-/* OMBRE APPLE */
-.apple-shadow {
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-}
-</style>
+    /* OMBRE DOUCE STYLE APPLE */
+    .apple-shadow {
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.15);
+    }
+    </style>
 </head>
 
 <body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
 
-<!-- HEADER -->
-<header class="pt-32 pb-20 lg:pt-40 lg:pb-40 overflow-hidden bg-white">
-<div class="container mx-auto px-6">
-<div class="flex flex-col lg:flex-row items-center gap-12">
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3 group">
+                <img src="assets/logo.png" alt="Logo MatchUp" width="40" height="40" class="rounded-xl shadow-lg group-hover:scale-105 transition object-cover bg-brand-blue">
+                <span class="text-2xl font-bold text-slate-900 tracking-tight">MatchUp<span class="text-brand-blue">+</span></span>
+            </a>
 
-<!-- TEXTE -->
-<div class="lg:w-5/12 text-center lg:text-left z-10">
-<h1 class="text-5xl lg:text-7xl font-bold mb-6 text-slate-900">
-Trouvez votre<br>
-<span class="text-gradient">partenaire idéal.</span>
-</h1>
+            <div class="hidden md:flex items-center gap-8 font-medium text-sm">
+                <a href="#features" class="text-slate-600 hover:text-brand-blue transition">Fonctionnalités</a>
+                <a href="#premium" class="text-slate-600 hover:text-brand-blue transition">Abonnement</a>
+                <a href="#clubs" class="text-slate-600 hover:text-brand-blue transition">Espace Clubs</a>
+                <a href="#about" class="text-slate-600 hover:text-brand-blue transition">À propos</a>
+                <a href="#download" class="px-5 py-2.5 bg-brand-blue text-white rounded-full hover:bg-blue-600 transition shadow-lg shadow-blue-500/30 font-semibold">
+                    Télécharger l'App
+                </a>
+            </div>
+            
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-slate-800 focus:outline-none p-2">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
 
-<p class="text-xl text-slate-500 mb-10 max-w-lg">
-MatchUp+ connecte les joueurs locaux, organise vos matchs et booste votre progression.
-</p>
-</div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full left-0 shadow-lg top-[72px]">
+            <div class="flex flex-col p-6 space-y-4 font-medium text-center">
+                <a href="#features" class="mobile-link text-slate-600 hover:text-brand-blue py-3 border-b border-slate-50">Fonctionnalités</a>
+                <a href="#premium" class="mobile-link text-slate-600 hover:text-brand-blue py-3 border-b border-slate-50">Abonnement</a>
+                <a href="#clubs" class="mobile-link text-slate-600 hover:text-brand-blue py-3 border-b border-slate-50">Espace Clubs</a>
+                <a href="#about" class="mobile-link text-slate-600 hover:text-brand-blue py-3 border-b border-slate-50">À propos</a>
+                <a href="#download" class="mobile-link text-brand-blue font-bold py-3">Télécharger l'App</a>
+            </div>
+        </div>
+    </nav>
 
-<!-- SCREENSHOTS -->
-<div class="lg:w-7/12 relative flex justify-center items-center mt-16 lg:mt-0">
+    <header class="pt-32 pb-20 lg:pt-40 lg:pb-40 overflow-hidden bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-0">
 
-<div class="relative w-full h-[600px] lg:h-[750px] flex items-center justify-center gap-12">
+                <div class="lg:w-5/12 text-center lg:text-left z-10 lg:pr-10">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 mb-8 bg-blue-50 text-brand-blue rounded-full text-sm font-bold border border-blue-100">
+                        <span class="relative flex h-3 w-3">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-blue"></span>
+                        </span>
+                        La communauté Tennis n°1 en France
+                    </div>
 
-<img
-src="assets/screenshot1.png"
-alt="App Screen 1"
-width="340"
-height="680"
-class="rounded-[44px] apple-shadow apple-img"
-/>
+                    <h1 class="text-5xl lg:text-7xl font-bold mb-6 text-slate-900 leading-tight">
+                        Trouvez votre<br>
+                        <span class="text-gradient">partenaire idéal.</span>
+                    </h1>
 
-<img
-src="assets/screenshot2.png"
-alt="App Screen 2"
-width="340"
-height="680"
-class="rounded-[44px] apple-shadow apple-img"
-/>
+                    <p class="text-xl text-slate-500 mb-10 max-w-lg mx-auto lg:mx-0">
+                        MatchUp+ connecte les joueurs locaux, organise vos matchs et booste votre progression. Sécurité, convivialité et performance.
+                    </p>
 
-</div>
-</div>
+                    <div id="download" class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#" target="_blank" class="bg-slate-900 text-white px-8 py-4 rounded-xl flex items-center justify-center gap-4 hover:bg-slate-800 transition hover:-translate-y-1 shadow-xl group">
+                            <i class="fa-brands fa-apple text-3xl group-hover:text-brand-blue transition"></i>
+                            <div class="text-left">
+                                <div class="text-[10px] uppercase tracking-wider text-slate-400">Télécharger sur</div>
+                                <div class="font-bold text-lg leading-none">App Store</div>
+                            </div>
+                        </a>
+                        <a href="#" target="_blank" class="bg-slate-900 text-white px-8 py-4 rounded-xl flex items-center justify-center gap-4 hover:bg-slate-800 transition hover:-translate-y-1 shadow-xl group">
+                            <i class="fa-brands fa-google-play text-3xl group-hover:text-brand-blue transition"></i>
+                            <div class="text-left">
+                                <div class="text-[10px] uppercase tracking-wider text-slate-400">Disponible sur</div>
+                                <div class="font-bold text-lg leading-none">Google Play</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
 
-</div>
-</div>
-</header>
+                <div class="lg:w-7/12 relative flex justify-center items-center mt-16 lg:mt-0">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-blue/10 rounded-full blur-3xl -z-10"></div>
+                    
+                    <div class="relative w-full h-[600px] lg:h-[750px] flex items-center justify-center">
+
+                        <div class="absolute z-0 transform -translate-x-10 lg:-translate-x-16 -rotate-6 transition duration-500 hover:z-20 hover:scale-105 hover:rotate-0 origin-bottom-left">
+                            <img
+                                src="assets/screenshot1.png"
+                                alt="App Screen 1"
+                                width="340"
+                                height="680"
+                                class="rounded-[44px] apple-shadow apple-img w-64 lg:w-[340px] h-auto bg-white"
+                            />
+                        </div>
+
+                        <div class="absolute z-10 transform translate-x-6 lg:translate-x-12 rotate-3 transition duration-500 hover:scale-105 hover:rotate-0 origin-bottom-right">
+                            <img
+                                src="assets/screenshot2.png"
+                                alt="App Screen 2"
+                                width="340"
+                                height="680"
+                                class="rounded-[44px] apple-shadow apple-img w-64 lg:w-[340px] h-auto bg-white"
+                            />
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
     <section id="features" class="py-24 bg-slate-50 relative">
         <div class="container mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-20">
@@ -108,7 +171,7 @@ class="rounded-[44px] apple-shadow apple-img"
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition duration-300 border border-slate-100 group">
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border border-slate-100 group">
                     <div class="w-14 h-14 bg-blue-50 text-brand-blue rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-blue group-hover:text-white transition">
                         <i class="fa-solid fa-map-location-dot"></i>
                     </div>
@@ -116,7 +179,7 @@ class="rounded-[44px] apple-shadow apple-img"
                     <p class="text-slate-600 leading-relaxed">Trouvez des joueurs et des terrains autour de vous. Filtrez par niveau, distance ou classement FFT.</p>
                 </div>
 
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition duration-300 border border-slate-100 group">
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border border-slate-100 group">
                     <div class="w-14 h-14 bg-yellow-50 text-yellow-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-yellow group-hover:text-white transition">
                         <i class="fa-solid fa-trophy"></i>
                     </div>
@@ -124,7 +187,7 @@ class="rounded-[44px] apple-shadow apple-img"
                     <p class="text-slate-600 leading-relaxed">Débloquez des badges (Invincible, Ténacité) et montez en niveau grâce à vos victoires.</p>
                 </div>
 
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition duration-300 border border-slate-100 group">
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border border-slate-100 group">
                     <div class="w-14 h-14 bg-green-50 text-green-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-green-500 group-hover:text-white transition">
                         <i class="fa-solid fa-calendar-check"></i>
                     </div>
@@ -132,7 +195,7 @@ class="rounded-[44px] apple-shadow apple-img"
                     <p class="text-slate-600 leading-relaxed">Planifiez des simples ou doubles, invitez vos amis et validez les scores officiellement.</p>
                 </div>
 
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition duration-300 border border-slate-100 group">
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border border-slate-100 group">
                     <div class="w-14 h-14 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-purple-500 group-hover:text-white transition">
                         <i class="fa-solid fa-comments"></i>
                     </div>
@@ -140,7 +203,7 @@ class="rounded-[44px] apple-shadow apple-img"
                     <p class="text-slate-600 leading-relaxed">Messagerie privée et groupes de discussion pour organiser vos rencontres facilement.</p>
                 </div>
 
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition duration-300 border border-slate-100 group">
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border border-slate-100 group">
                     <div class="w-14 h-14 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-red-500 group-hover:text-white transition">
                         <i class="fa-solid fa-chart-pie"></i>
                     </div>
@@ -148,7 +211,7 @@ class="rounded-[44px] apple-shadow apple-img"
                     <p class="text-slate-600 leading-relaxed">Suivez votre taux de victoire, vos séries et l'historique complet de vos performances.</p>
                 </div>
 
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition duration-300 border border-slate-100 group">
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border border-slate-100 group">
                     <div class="w-14 h-14 bg-slate-100 text-slate-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-slate-800 group-hover:text-white transition">
                         <i class="fa-solid fa-shield-halved"></i>
                     </div>
@@ -186,10 +249,6 @@ class="rounded-[44px] apple-shadow apple-img"
                             <div class="w-6 h-6 rounded-full bg-brand-yellow flex items-center justify-center text-brand-dark text-xs"><i class="fa-solid fa-check"></i></div>
                             <span class="font-medium">Badge Premium exclusif sur votre profil</span>
                         </li>
-                        <li class="flex items-center gap-4">
-                            <div class="w-6 h-6 rounded-full bg-brand-yellow flex items-center justify-center text-brand-dark text-xs"><i class="fa-solid fa-check"></i></div>
-                            <span class="font-medium">Expérience 100% sans publicité</span>
-                        </li>
                     </ul>
 
                     <div class="flex flex-col sm:flex-row gap-4">
@@ -203,7 +262,7 @@ class="rounded-[44px] apple-shadow apple-img"
                 </div>
 
                 <div class="relative">
-                    <div class="bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-3xl border border-slate-700 shadow-2xl relative overflow-hidden">
+                    <div class="bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-[40px] border border-slate-700 shadow-2xl relative overflow-hidden apple-img apple-shadow">
                         <div class="absolute top-0 right-0 p-6 opacity-10">
                             <i class="fa-solid fa-crown text-9xl"></i>
                         </div>
@@ -244,7 +303,7 @@ class="rounded-[44px] apple-shadow apple-img"
                             </div>
                             <div>
                                 <h4 class="font-bold text-slate-900 text-lg">Visibilité Premium sur la Carte</h4>
-                                <p class="text-slate-600 text-sm mt-1">Votre club apparaît avec un marqueur distinctif et une fiche détaillée (photos, horaires, lien réservation) visible par tous les joueurs à proximité.</p>
+                                <p class="text-slate-600 text-sm mt-1">Votre club apparaît avec un marqueur distinctif et une fiche détaillée (photos, horaires, lien réservation).</p>
                             </div>
                         </div>
 
@@ -254,7 +313,7 @@ class="rounded-[44px] apple-shadow apple-img"
                             </div>
                             <div>
                                 <h4 class="font-bold text-slate-900 text-lg">Attirez de nouveaux joueurs</h4>
-                                <p class="text-slate-600 text-sm mt-1">Convertissez les utilisateurs de l'application en joueurs occasionnels ou en futurs licenciés pour votre club.</p>
+                                <p class="text-slate-600 text-sm mt-1">Convertissez les utilisateurs de l'application en joueurs occasionnels ou en futurs licenciés.</p>
                             </div>
                         </div>
                     </div>
@@ -263,27 +322,18 @@ class="rounded-[44px] apple-shadow apple-img"
                         <span>Devenir Club Partenaire</span>
                         <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
                     </a>
-                    <p class="text-xs text-slate-400 mt-4">Contact direct avec l'équipe fondatrice.</p>
                 </div>
 
                 <div class="lg:w-1/2 relative">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-100 to-transparent rounded-3xl transform rotate-3 scale-105 -z-10"></div>
+                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-100 to-transparent rounded-[44px] transform rotate-3 scale-105 -z-10"></div>
                     
-                    <div class="bg-white p-2 rounded-3xl shadow-2xl border border-slate-100 relative overflow-hidden group">
+                    <div class="bg-white p-2 rounded-[44px] apple-shadow border border-slate-100 relative overflow-hidden group apple-img">
                         <div class="absolute top-6 right-6 bg-white/90 backdrop-blur px-4 py-2 rounded-lg shadow-lg z-10 flex items-center gap-2 border border-slate-100">
                             <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                             <span class="text-xs font-bold text-slate-700">Vue Joueur</span>
                         </div>
 
-                        <img src="assets/map_club.png" alt="Exemple de club sur la carte MatchUp" class="w-full h-auto rounded-2xl transform group-hover:scale-[1.02] transition duration-500">
-                        
-                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-slate-900/90 to-transparent p-8 pt-20">
-                            <div class="text-white">
-                                <div class="text-brand-yellow font-bold text-sm mb-1 uppercase tracking-widest">Exemple</div>
-                                <div class="font-bold text-xl">Fiche Club Détaillée</div>
-                                <div class="text-slate-300 text-sm">Les joueurs cliquent sur votre club pour réserver.</div>
-                            </div>
-                        </div>
+                        <img src="assets/map_club.png" alt="Exemple de club sur la carte MatchUp" class="w-full h-auto rounded-[36px] transform group-hover:scale-[1.02] transition duration-500">
                     </div>
                 </div>
 
@@ -298,9 +348,6 @@ class="rounded-[44px] apple-shadow apple-img"
                 MatchUp vous permet de découvrir des joueurs de tennis autour de vous, planifier des matchs et suivre vos progrès. 
                 L'application met l'accent sur la sécurité, la convivialité et la progression de chaque joueur.
             </p>
-            <p class="text-slate-600 font-medium">
-                Rejoignez une communauté passionnée et faites évoluer votre jeu dès aujourd'hui.
-            </p>
         </div>
     </section>
 
@@ -310,17 +357,12 @@ class="rounded-[44px] apple-shadow apple-img"
                 
                 <div class="md:col-span-5">
                     <a href="#" class="flex items-center gap-3 mb-6">
-                        <img src="assets/logo.png" alt="Logo MatchUp" class="w-8 h-8 rounded-lg bg-brand-blue object-cover">
+                        <img src="assets/logo.png" alt="Logo MatchUp" width="32" height="32" class="rounded-lg bg-brand-blue object-cover">
                         <span class="text-xl font-bold text-slate-900">MatchUp<span class="text-brand-blue">+</span></span>
                     </a>
                     <p class="text-slate-500 mb-6 max-w-sm">
-                        L'application incontournable pour les joueurs de tennis en France. Matchs, stats, rencontres.
+                        L'application incontournable pour les joueurs de tennis en France.
                     </p>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-brand-blue hover:border-brand-blue transition"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-brand-blue hover:border-brand-blue transition"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-brand-blue hover:border-brand-blue transition"><i class="fa-brands fa-twitter"></i></a>
-                    </div>
                 </div>
 
                 <div class="md:col-span-3">
@@ -348,9 +390,7 @@ class="rounded-[44px] apple-shadow apple-img"
             </div>
 
             <div class="border-t border-slate-200 py-8 text-center">
-                <p class="text-slate-400 text-sm">
-                    © 2025 MatchUp — Tous droits réservés.
-                </p>
+                <p class="text-slate-400 text-sm">© 2025 MatchUp — Tous droits réservés.</p>
             </div>
         </div>
     </footer>
@@ -360,11 +400,8 @@ class="rounded-[44px] apple-shadow apple-img"
         const menu = document.getElementById('mobile-menu');
         const links = document.querySelectorAll('.mobile-link');
 
-        // Ouvrir / Fermer le menu au clic sur le bouton
         btn.addEventListener('click', () => {
             menu.classList.toggle('hidden');
-            
-            // Change l'icône (Barres <-> Croix)
             const icon = btn.querySelector('i');
             if (menu.classList.contains('hidden')) {
                 icon.classList.remove('fa-xmark');
@@ -375,7 +412,6 @@ class="rounded-[44px] apple-shadow apple-img"
             }
         });
 
-        // Fermer le menu automatiquement quand on clique sur un lien
         links.forEach(link => {
             link.addEventListener('click', () => {
                 menu.classList.add('hidden');
