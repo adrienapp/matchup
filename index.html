@@ -43,12 +43,10 @@
 </head>
 <body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
 
-   <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300">
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="flex items-center gap-2 group">
-                <div class="bg-brand-blue text-white w-10 h-10 rounded-xl flex items-center justify-center text-lg shadow-lg group-hover:scale-105 transition">
-                    <i class="fa-solid fa-tennis-ball"></i>
-                </div>
+            <a href="#" class="flex items-center gap-3 group">
+                <img src="assets/logo.png" alt="Logo MatchUp" class="w-10 h-10 rounded-xl shadow-lg group-hover:scale-105 transition object-cover bg-brand-blue">
                 <span class="text-2xl font-bold text-slate-900 tracking-tight">MatchUp<span class="text-brand-blue">+</span></span>
             </a>
 
@@ -56,22 +54,22 @@
                 <a href="#features" class="text-slate-600 hover:text-brand-blue transition">Fonctionnalités</a>
                 <a href="#premium" class="text-slate-600 hover:text-brand-blue transition">Abonnement</a>
                 <a href="#about" class="text-slate-600 hover:text-brand-blue transition">À propos</a>
-                <a href="#contact" class="px-5 py-2.5 bg-brand-blue text-white rounded-full hover:bg-blue-600 transition shadow-lg shadow-blue-500/30 font-semibold">
+                <a href="#download" class="px-5 py-2.5 bg-brand-blue text-white rounded-full hover:bg-blue-600 transition shadow-lg shadow-blue-500/30 font-semibold">
                     Télécharger l'App
                 </a>
             </div>
             
-            <button id="mobile-menu-btn" class="md:hidden text-2xl text-slate-800 focus:outline-none">
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-slate-800 focus:outline-none p-2">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full left-0 shadow-lg">
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full left-0 shadow-lg top-[72px]">
             <div class="flex flex-col p-6 space-y-4 font-medium text-center">
-                <a href="#features" class="mobile-link text-slate-600 hover:text-brand-blue py-2">Fonctionnalités</a>
-                <a href="#premium" class="mobile-link text-slate-600 hover:text-brand-blue py-2">Abonnement</a>
-                <a href="#about" class="mobile-link text-slate-600 hover:text-brand-blue py-2">À propos</a>
-                <a href="#contact" class="mobile-link text-brand-blue font-bold py-2">Télécharger l'App</a>
+                <a href="#features" class="mobile-link text-slate-600 hover:text-brand-blue py-3 border-b border-slate-50">Fonctionnalités</a>
+                <a href="#premium" class="mobile-link text-slate-600 hover:text-brand-blue py-3 border-b border-slate-50">Abonnement</a>
+                <a href="#about" class="mobile-link text-slate-600 hover:text-brand-blue py-3 border-b border-slate-50">À propos</a>
+                <a href="#download" class="mobile-link text-brand-blue font-bold py-3">Télécharger l'App</a>
             </div>
         </div>
     </nav>
@@ -98,20 +96,24 @@
                         MatchUp+ connecte les joueurs locaux, organise vos matchs et booste votre progression. Sécurité, convivialité et performance.
                     </p>
                     
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <button class="bg-slate-900 text-white px-8 py-4 rounded-xl flex items-center justify-center gap-4 hover:bg-slate-800 transition hover:-translate-y-1 shadow-xl">
-                            <i class="fa-brands fa-apple text-3xl"></i>
+                    <div id="download" class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        
+                        <a href="#" target="_blank" class="bg-slate-900 text-white px-8 py-4 rounded-xl flex items-center justify-center gap-4 hover:bg-slate-800 transition hover:-translate-y-1 shadow-xl group">
+                            <i class="fa-brands fa-apple text-3xl group-hover:text-brand-blue transition"></i>
                             <div class="text-left">
                                 <div class="text-[10px] uppercase tracking-wider text-slate-400">Télécharger sur</div>
                                 <div class="font-bold text-lg leading-none">App Store</div>
                             </div>
-                        </button>
-                        <img src="assets/logo.png" alt="Logo MatchUp" class="w-10 h-10 rounded-xl shadow-lg group-hover:scale-105 transition object-cover">
+                        </a>
+
+                        <a href="#" target="_blank" class="bg-slate-900 text-white px-8 py-4 rounded-xl flex items-center justify-center gap-4 hover:bg-slate-800 transition hover:-translate-y-1 shadow-xl group">
+                            <i class="fa-brands fa-google-play text-3xl group-hover:text-brand-blue transition"></i>
                             <div class="text-left">
                                 <div class="text-[10px] uppercase tracking-wider text-slate-400">Disponible sur</div>
                                 <div class="font-bold text-lg leading-none">Google Play</div>
                             </div>
-                        </button>
+                        </a>
+
                     </div>
                 </div>
 
@@ -124,34 +126,10 @@
                         <div class="h-[46px] w-[3px] bg-gray-800 absolute -left-[17px] top-[124px] rounded-l-lg"></div>
                         <div class="h-[46px] w-[3px] bg-gray-800 absolute -left-[17px] top-[178px] rounded-l-lg"></div>
                         <div class="h-[64px] w-[3px] bg-gray-800 absolute -right-[17px] top-[142px] rounded-r-lg"></div>
+                        
                         <div class="rounded-[2rem] overflow-hidden w-full h-full bg-white relative">
-                            <div class="bg-brand-blue h-32 w-full pt-10 px-4 text-white">
-                                <div class="flex justify-between items-center mb-4">
-                                    <i class="fa-solid fa-bars"></i>
-                                    <span class="font-bold">MatchUp+</span>
-                                    <i class="fa-solid fa-bell"></i>
-                                </div>
-                                <h2 class="text-2xl font-bold">Bonjour, Alex 👋</h2>
-                            </div>
-                            <div class="p-4 space-y-4">
-                                <div class="bg-white shadow-lg rounded-xl p-4 -mt-10 border border-slate-100">
-                                    <div class="flex justify-between items-center text-sm text-slate-500 mb-2">
-                                        <span>Niveau</span>
-                                        <span class="text-brand-blue font-bold">Intermédiaire</span>
-                                    </div>
-                                    <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
-                                        <div class="bg-brand-yellow h-full w-2/3"></div>
-                                    </div>
-                                </div>
-                                <div class="text-sm font-bold text-slate-800 mt-4">Joueurs à proximité</div>
-                                <div class="flex gap-3 overflow-hidden">
-                                    <div class="w-16 h-16 bg-slate-200 rounded-full flex-shrink-0"></div>
-                                    <div class="w-16 h-16 bg-slate-200 rounded-full flex-shrink-0"></div>
-                                    <div class="w-16 h-16 bg-slate-200 rounded-full flex-shrink-0"></div>
-                                    <div class="w-16 h-16 bg-slate-200 rounded-full flex-shrink-0"></div>
-                                </div>
-                            </div>
-                            </div>
+                            <img src="assets/screenshot.png" alt="Interface de MatchUp+" class="w-full h-full object-cover">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -252,7 +230,7 @@
                     </ul>
 
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#" class="bg-brand-yellow text-brand-dark px-8 py-4 rounded-full font-bold hover:bg-yellow-400 transition text-center shadow-lg shadow-yellow-500/20">
+                        <a href="#download" class="bg-brand-yellow text-brand-dark px-8 py-4 rounded-full font-bold hover:bg-yellow-400 transition text-center shadow-lg shadow-yellow-500/20">
                             Essayer Premium (4.99€/mois)
                         </a>
                         <p class="text-slate-400 text-xs mt-4 sm:mt-0 sm:ml-4 flex items-center max-w-xs">
@@ -298,8 +276,8 @@
             <div class="grid md:grid-cols-12 gap-12 mb-16">
                 
                 <div class="md:col-span-5">
-                    <a href="#" class="flex items-center gap-2 mb-6">
-                        <i class="fa-solid fa-tennis-ball text-brand-blue text-xl"></i>
+                    <a href="#" class="flex items-center gap-3 mb-6">
+                        <img src="assets/logo.png" alt="Logo MatchUp" class="w-8 h-8 rounded-lg">
                         <span class="text-xl font-bold text-slate-900">MatchUp<span class="text-brand-blue">+</span></span>
                     </a>
                     <p class="text-slate-500 mb-6 max-w-sm">
@@ -330,6 +308,7 @@
                         </li>
                         <li><a href="privacy.html" class="hover:text-brand-blue transition">Politique de confidentialité</a></li>
                         <li><a href="terms.html" class="hover:text-brand-blue transition">Conditions d'utilisation</a></li>
+                        <li><a href="child-safety.html" class="hover:text-brand-blue transition">Sécurité & Mineurs</a></li>
                     </ul>
                 </div>
             </div>
@@ -341,7 +320,8 @@
             </div>
         </div>
     </footer>
-<script>
+
+    <script>
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
         const links = document.querySelectorAll('.mobile-link');
