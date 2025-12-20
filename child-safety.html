@@ -1,109 +1,171 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <title>MatchUp – Normes de sécurité liées aux enfants</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Normes de sécurité de MatchUp concernant la protection des mineurs et la prévention des abus." />
-  <style>
-    body { font-family: "Segoe UI", sans-serif; margin: 0; background: #f7f9fc; color: #1f2933; }
-    header { background: linear-gradient(120deg, #4f46e5, #06b6d4); color: white; padding: 24px; text-align: center; }
-    nav { margin-top: 12px; }
-    nav a { color: rgba(255,255,255,0.95); text-decoration: none; margin: 0 10px; font-weight: 600; }
-    main { max-width: 780px; margin: 0 auto; padding: 32px 24px 64px; }
-    section { margin-bottom: 40px; background: white; border-radius: 16px; padding: 24px; box-shadow: 0 12px 24px rgba(79, 70, 229, 0.08); }
-    h1, h2 { margin-bottom: 16px; }
-    ul { padding-left: 20px; }
-    footer { text-align: center; padding: 32px 24px; color: #52606d; font-size: 14px; }
-    a { color: #4f46e5; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normes de sécurité & Protection des mineurs | MatchUp+</title>
+    <meta name="description" content="Normes de sécurité de MatchUp concernant la protection des mineurs et la prévention des abus.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#0088FF',
+                            yellow: '#FFD700',
+                            dark: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style> body { font-family: 'Inter', sans-serif; } </style>
 </head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
 
-<body>
-  <header>
-    <h1>Normes de sécurité liées aux enfants</h1>
-    <p>Engagement de MatchUp pour protéger les mineurs et prévenir tout abus.</p>
-    <nav>
-      <a href="index.html">Accueil</a>
-      <a href="premium.html">Abonnement</a>
-      <a href="privacy.html">Politique de confidentialité</a>
-      <a href="terms.html">Conditions d’utilisation</a>
+    <nav class="bg-white border-b border-slate-200 py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 font-bold text-xl text-slate-900 group">
+                <i class="fa-solid fa-tennis-ball text-brand-blue group-hover:rotate-12 transition"></i> MatchUp<span class="text-brand-blue">+</span>
+            </a>
+            <a href="index.html" class="text-sm font-medium text-slate-600 hover:text-brand-blue flex items-center gap-2 transition">
+                <i class="fa-solid fa-arrow-left"></i> Retour à l'accueil
+            </a>
+        </div>
     </nav>
-  </header>
 
-  <main>
+    <main class="container mx-auto px-6 py-12 max-w-4xl flex-grow">
+        
+        <div class="text-center mb-12">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-50 text-brand-blue text-3xl mb-4">
+                <i class="fa-solid fa-shield-cat"></i>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Normes de sécurité liées aux enfants</h1>
+            <p class="text-slate-500 text-lg max-w-2xl mx-auto">
+                L'engagement de MatchUp+ pour protéger les mineurs, prévenir les abus et garantir une communauté saine.
+            </p>
+        </div>
 
-    <section>
-      <h2>Engagement général</h2>
-      <p>
-        MatchUp s’engage à assurer un environnement sécurisé pour tous ses utilisateurs.  
-        Bien que l’application soit destinée aux adultes, nous appliquons une politique stricte 
-        visant à prévenir tout risque d’exploitation de mineurs ou de comportement inapproprié.
-      </p>
-    </section>
+        <div class="space-y-8">
+            
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
+                <div class="flex items-start gap-4">
+                    <i class="fa-solid fa-hand-holding-heart text-brand-blue text-2xl mt-1"></i>
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-900 mb-3">Engagement général</h2>
+                        <p class="text-slate-600 leading-relaxed">
+                            MatchUp s’engage à assurer un environnement sécurisé pour tous ses utilisateurs. 
+                            Bien que l’application soit principalement destinée à une pratique sportive entre adultes ou jeunes adultes, nous appliquons une <strong>tolérance zéro</strong> visant à prévenir tout risque d’exploitation de mineurs ou de comportement inapproprié.
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-    <section>
-      <h2>Âge minimum requis</h2>
-      <p>
-        L’utilisation de MatchUp est strictement réservée aux personnes âgées de 
-        <strong>16 ans et plus</strong> (ou l’âge légal applicable dans votre pays).  
-        Toute tentative de création de compte par un mineur en dessous de cet âge est interdite 
-        et peut entraîner une suppression immédiate du compte.
-      </p>
-    </section>
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition border-l-4 border-l-brand-blue">
+                <div class="flex items-start gap-4">
+                    <i class="fa-solid fa-user-check text-brand-blue text-2xl mt-1"></i>
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-900 mb-3">Âge minimum requis</h2>
+                        <p class="text-slate-600 leading-relaxed mb-4">
+                            L’utilisation de MatchUp est strictement réservée aux personnes âgées de <strong>16 ans et plus</strong> (ou l’âge légal applicable dans votre pays pour le consentement numérique).
+                        </p>
+                        <div class="bg-red-50 text-red-700 px-4 py-3 rounded-lg text-sm border border-red-100 flex items-center gap-3">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            Toute tentative de création de compte par un mineur en dessous de cet âge est interdite et entraînera la suppression immédiate du compte.
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <section>
-      <h2>Prévention de l’exploitation et des abus</h2>
-      <ul>
-        <li>Interdiction absolue de tout contenu à caractère sexuel impliquant des mineurs.</li>
-        <li>Interdiction de demander, partager ou échanger des images inappropriées.</li>
-        <li>Signalement immédiat aux autorités en cas de comportement suspect ou illégal.</li>
-        <li>Suppression rapide du contenu signalé et suspension du compte concerné.</li>
-      </ul>
-    </section>
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
+                <div class="flex items-start gap-4">
+                    <i class="fa-solid fa-ban text-red-500 text-2xl mt-1"></i>
+                    <div class="w-full">
+                        <h2 class="text-xl font-bold text-slate-900 mb-4">Prévention de l’exploitation et des abus</h2>
+                        <ul class="grid md:grid-cols-2 gap-4">
+                            <li class="flex items-center gap-3 text-slate-600 bg-slate-50 p-3 rounded-lg">
+                                <i class="fa-solid fa-xmark text-red-500"></i> Contenu sexuel impliquant des mineurs interdit.
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-600 bg-slate-50 p-3 rounded-lg">
+                                <i class="fa-solid fa-xmark text-red-500"></i> Partage d'images inappropriées interdit.
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-600 bg-slate-50 p-3 rounded-lg">
+                                <i class="fa-solid fa-check text-green-500"></i> Signalement immédiat aux autorités.
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-600 bg-slate-50 p-3 rounded-lg">
+                                <i class="fa-solid fa-check text-green-500"></i> Suppression rapide du contenu.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-    <section>
-      <h2>Mécanismes de signalement</h2>
-      <p>
-        Tout utilisateur peut signaler un comportement problématique directement depuis l’application.  
-        Nos équipes examinent les signalements en priorité lorsqu’ils concernent la sécurité des mineurs.
-      </p>
-      <p>
-        En cas d’urgence ou de danger immédiat, nous conseillons de contacter directement les autorités locales.
-      </p>
-    </section>
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
+                <div class="flex items-start gap-4">
+                    <i class="fa-solid fa-flag text-brand-yellow text-2xl mt-1"></i>
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-900 mb-3">Mécanismes de signalement</h2>
+                        <p class="text-slate-600 mb-4">
+                            Tout utilisateur peut signaler un comportement problématique directement depuis l’application (bouton "Signaler" sur le profil ou dans le chat). Nos équipes examinent les signalements en <strong>priorité absolue</strong> lorsqu’ils concernent la sécurité des mineurs.
+                        </p>
+                        <p class="text-sm text-slate-500 italic">
+                            En cas d’urgence ou de danger immédiat, nous conseillons de contacter directement les autorités locales.
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-    <section>
-      <h2>Modération et actions</h2>
-      <ul>
-        <li>Vérification des signalements dans les plus brefs délais.</li>
-        <li>Suspension ou bannissement définitif des utilisateurs violant ces normes.</li>
-        <li>Coopération avec les forces de l’ordre si nécessaire.</li>
-        <li>Amélioration continue des outils de détection et de prévention.</li>
-      </ul>
-    </section>
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
+                <h2 class="text-xl font-bold text-slate-900 mb-4">Modération et actions</h2>
+                <ul class="space-y-3">
+                    <li class="flex items-center gap-3 text-slate-600">
+                        <div class="w-2 h-2 rounded-full bg-brand-blue"></div>
+                        Vérification des signalements dans les plus brefs délais.
+                    </li>
+                    <li class="flex items-center gap-3 text-slate-600">
+                        <div class="w-2 h-2 rounded-full bg-brand-blue"></div>
+                        Suspension ou bannissement définitif des utilisateurs violant ces normes.
+                    </li>
+                    <li class="flex items-center gap-3 text-slate-600">
+                        <div class="w-2 h-2 rounded-full bg-brand-blue"></div>
+                        Coopération pleine et entière avec les forces de l’ordre si nécessaire.
+                    </li>
+                    <li class="flex items-center gap-3 text-slate-600">
+                        <div class="w-2 h-2 rounded-full bg-brand-blue"></div>
+                        Amélioration continue des outils de détection automatisée.
+                    </li>
+                </ul>
+            </div>
 
-    <section>
-      <h2>Nous contacter</h2>
-      <p>
-        Pour toute question relative à la sécurité, contactez-nous à :  
-        <a href="mailto:contact.fr.matchup@gmail.com">contact.fr.matchup@gmail.com</a>
-      </p>
-      <p>
-        Consultez également notre 
-        <a href="privacy.html">Politique de confidentialité</a> et nos 
-        <a href="terms.html">Conditions d’utilisation</a>.
-      </p>
-    </section>
+            <div class="bg-blue-50 p-8 rounded-2xl border border-blue-100 text-center">
+                <h2 class="text-xl font-bold text-brand-blue mb-2">Une question sur la sécurité ?</h2>
+                <p class="text-slate-600 mb-4">Nous sommes à votre disposition.</p>
+                <a href="mailto:contact.fr.matchup@gmail.com" class="inline-flex items-center gap-2 bg-white text-brand-blue px-6 py-3 rounded-full font-bold shadow-sm hover:shadow-md transition">
+                    <i class="fa-solid fa-envelope"></i> contact.fr.matchup@gmail.com
+                </a>
+                <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm text-slate-500">
+                    <a href="privacy.html" class="hover:text-brand-blue underline">Politique de confidentialité</a>
+                    <span>•</span>
+                    <a href="terms.html" class="hover:text-brand-blue underline">Conditions d’utilisation</a>
+                </div>
+            </div>
 
-  </main>
+        </div>
+    </main>
 
-  <footer>
-    © <span id="year"></span> MatchUp — Tous droits réservés.
-  </footer>
+    <footer class="bg-slate-50 border-t border-slate-200 py-8 text-center text-slate-400 text-sm">
+        <p>© <span id="year">2025</span> MatchUp — Tous droits réservés.</p>
+    </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
