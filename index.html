@@ -22,7 +22,6 @@
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
           },
-          // Ajout pour s'assurer que les arrondis sont cohérents
           borderRadius: {
             '4xl': '2.5rem',
           }
@@ -37,22 +36,22 @@
     <style>
     body { font-family: 'Inter', sans-serif; }
 
-    /* Dégradé de texte */
+    /* Dégradé de texte (Ajusté pour fond sombre : Bleu clair vers Blanc) */
     .text-gradient {
-      background: linear-gradient(to right, #0088FF, #0066CC);
+      background: linear-gradient(to right, #60A5FA, #ffffff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     /* RENDU IMAGE PROPRE (APPLE SAFE) */
     .apple-img {
-      image-rendering: auto; /* Laisse le navigateur gérer le lissage */
+      image-rendering: auto;
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
-      transform: translateZ(0); /* Force l'accélération GPU */
+      transform: translateZ(0);
     }
 
-    /* OMBRE DOUCE STYLE APPLE */
+    /* OMBRE DOUCE */
     .apple-shadow {
       box-shadow: 0 20px 40px -12px rgba(0,0,0,0.15);
     }
@@ -94,47 +93,56 @@
         </div>
     </nav>
 
-    <header class="pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden bg-white">
-        <div class="container mx-auto px-6">
+    <header class="relative pt-32 pb-32 lg:pt-48 lg:pb-48 overflow-hidden">
+        
+        <div class="absolute inset-0 z-0">
+            <img src="assets/fond_ecran.png" alt="Fond Tennis" class="w-full h-full object-cover">
             
-            <div class="flex flex-col items-center text-center max-w-4xl mx-auto z-10">
+            <div class="absolute inset-0 bg-slate-900/60"></div>
+            
+            <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-slate-50 to-transparent"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            
+            <div class="flex flex-col items-center text-center max-w-4xl mx-auto">
                 
-                <div class="inline-flex items-center gap-2 px-4 py-2 mb-8 bg-blue-50 text-brand-blue rounded-full text-sm font-bold border border-blue-100">
+                <div class="inline-flex items-center gap-2 px-4 py-2 mb-8 bg-white/10 backdrop-blur-md text-white rounded-full text-sm font-bold border border-white/20 shadow-lg">
                     <span class="relative flex h-3 w-3">
                       <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                       <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-blue"></span>
                     </span>
-                    Communauté de Tennis Française !
+                    La communauté Tennis n°1 en France
                 </div>
 
-                <h1 class="text-5xl lg:text-7xl font-bold mb-6 text-slate-900 leading-tight">
+                <h1 class="text-5xl lg:text-7xl font-bold mb-6 text-white leading-tight drop-shadow-lg">
                     Trouvez votre<br>
                     <span class="text-gradient">partenaire idéal.</span>
                 </h1>
 
-                <p class="text-xl text-slate-500 mb-10 max-w-lg mx-auto">
-                    MatchUp+ connecte les joueurs de tennis de tous niveaux, facilite l’organisation de vos matchs et boost votre progression.
+                <p class="text-xl text-slate-200 mb-10 max-w-lg mx-auto font-medium drop-shadow-md">
+                    MatchUp+ connecte les joueurs locaux, organise vos matchs et booste votre progression. Sécurité, convivialité et performance.
                 </p>
 
                 <div id="download" class="flex flex-col sm:flex-row gap-4 justify-center w-full">
-                    <a href="#" target="_blank" class="bg-slate-900 text-white px-8 py-4 rounded-xl flex items-center justify-center gap-4 hover:bg-slate-800 transition hover:-translate-y-1 shadow-xl group">
-                        <i class="fa-brands fa-apple text-3xl group-hover:text-brand-blue transition"></i>
+                    <a href="#" target="_blank" class="bg-white text-slate-900 px-8 py-4 rounded-xl flex items-center justify-center gap-4 hover:bg-slate-100 transition hover:-translate-y-1 shadow-xl group border border-white">
+                        <i class="fa-brands fa-apple text-3xl text-brand-blue"></i>
                         <div class="text-left">
-                            <div class="text-[10px] uppercase tracking-wider text-slate-400">Télécharger sur</div>
+                            <div class="text-[10px] uppercase tracking-wider text-slate-500 font-bold">Télécharger sur</div>
                             <div class="font-bold text-lg leading-none">App Store</div>
                         </div>
                     </a>
-                    <a href="#" target="_blank" class="bg-slate-900 text-white px-8 py-4 rounded-xl flex items-center justify-center gap-4 hover:bg-slate-800 transition hover:-translate-y-1 shadow-xl group">
-                        <i class="fa-brands fa-google-play text-3xl group-hover:text-brand-blue transition"></i>
+                    <a href="#" target="_blank" class="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-xl flex items-center justify-center gap-4 hover:bg-white/20 transition hover:-translate-y-1 shadow-xl group border border-white/30">
+                        <i class="fa-brands fa-google-play text-3xl"></i>
                         <div class="text-left">
-                            <div class="text-[10px] uppercase tracking-wider text-slate-400">Disponible sur</div>
+                            <div class="text-[10px] uppercase tracking-wider text-slate-300 font-bold">Disponible sur</div>
                             <div class="font-bold text-lg leading-none">Google Play</div>
                         </div>
                     </a>
                 </div>
 
             </div>
-            </div>
+        </div>
     </header>
 
     <section id="features" class="py-24 bg-slate-50 relative">
@@ -183,7 +191,7 @@
                         <i class="fa-solid fa-chart-pie"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-slate-900">Statistiques Avancées</h3>
-                    <p class="text-slate-600 leading-relaxed">Suivez votre taux de victoire, vos séries et l’historique complet de vos performances, avec des classements FFT vérifiés pour des matchs fiables et équitables.</p>
+                    <p class="text-slate-600 leading-relaxed">Suivez votre taux de victoire, vos séries et l'historique complet de vos performances.</p>
                 </div>
 
                 <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border border-slate-100 group">
@@ -278,7 +286,7 @@
                             </div>
                             <div>
                                 <h4 class="font-bold text-slate-900 text-lg">Visibilité Premium sur la Carte</h4>
-                                <p class="text-slate-600 text-sm mt-1">Votre club apparaît avec un marqueur distinctif et une fiche détaillée (photos, lien, adresse).</p>
+                                <p class="text-slate-600 text-sm mt-1">Votre club apparaît avec un marqueur distinctif et une fiche détaillée (photos, horaires, lien réservation).</p>
                             </div>
                         </div>
 
