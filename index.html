@@ -32,26 +32,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+        body { font-family: 'Inter', sans-serif; }
         
-        body { font-family: 'Inter', sans-serif; }
-        /* Animation douce pour le dégradé du texte */
+        /* Animation du dégradé de texte */
         .text-gradient {
             background: linear-gradient(to right, #0088FF, #0066CC);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        /* AJOUTE CECI POUR LA NETTETÉ DES IMAGES */
-        .sharpness {
-            image-rendering: -webkit-optimize-contrast; /* Pour Chrome/Safari */
-            image-rendering: crisp-edges; /* Standard moderne */
-        }
-  
-        body { font-family: 'Inter', sans-serif; }
-        /* Animation douce pour le dégradé du texte */
-        .text-gradient {
-            background: linear-gradient(to right, #0088FF, #0066CC);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+
+        /* OPTIMISATION RENDEZ-VOUS IMAGES (Netteté & Anti-aliasing) */
+        .img-fix {
+            /* Force la netteté sur Chrome/Safari */
+            image-rendering: -webkit-optimize-contrast;
+            /* Empêche le scintillement des bords lors de la rotation */
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            /* Force l'accélération matérielle */
+            transform: translateZ(0);
         }
     </style>
 </head>
@@ -89,7 +87,8 @@
             </div>
         </div>
     </nav>
-<header class="pt-32 pb-20 lg:pt-40 lg:pb-40 overflow-hidden bg-white">
+
+    <header class="pt-32 pb-20 lg:pt-40 lg:pb-40 overflow-hidden bg-white">
         <div class="container mx-auto px-6">
             <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-0">
                 
@@ -134,14 +133,14 @@
                     
                     <div class="relative w-full h-[600px] lg:h-[750px] flex items-center justify-center">
                         
-                        <div class="absolute z-0 transform -translate-x-10 lg:-translate-x-16 -rotate-6 transition duration-500 hover:z-20 hover:scale-105 hover:rotate-0 origin-bottom-left">
+                        <div class="absolute z-0 transform -translate-x-10 lg:-translate-x-16 -rotate-6 transition duration-500 hover:z-20 hover:scale-105 hover:rotate-0 origin-bottom-left will-change-transform">
                             <img src="assets/screenshot1.png" alt="App Screen 1" 
-                                 class="w-64 lg:w-[340px] h-auto rounded-[2.5rem] shadow-2xl block object-cover">
+                                 class="w-64 lg:w-[340px] h-auto rounded-[2.5rem] shadow-2xl block object-cover ring-1 ring-black/10 img-fix">
                         </div>
 
-                        <div class="absolute z-10 transform translate-x-6 lg:translate-x-12 rotate-3 transition duration-500 hover:scale-105 hover:rotate-0 origin-bottom-right">
+                        <div class="absolute z-10 transform translate-x-6 lg:translate-x-12 rotate-3 transition duration-500 hover:scale-105 hover:rotate-0 origin-bottom-right will-change-transform">
                             <img src="assets/screenshot2.png" alt="App Screen 2" 
-                                 class="w-64 lg:w-[340px] h-auto rounded-[2.5rem] shadow-2xl block object-cover">
+                                 class="w-64 lg:w-[340px] h-auto rounded-[2.5rem] shadow-2xl block object-cover ring-1 ring-black/10 img-fix">
                         </div>
 
                     </div>
@@ -149,6 +148,7 @@
             </div>
         </div>
     </header>
+
     <section id="features" class="py-24 bg-slate-50 relative">
         <div class="container mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-20">
