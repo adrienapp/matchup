@@ -21,6 +21,10 @@
           },
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
+          },
+          // Ajout pour s'assurer que les arrondis sont cohérents
+          borderRadius: {
+            '4xl': '2.5rem',
           }
         }
       }
@@ -90,76 +94,47 @@
         </div>
     </nav>
 
-    <header class="pt-32 pb-20 lg:pt-40 lg:pb-40 overflow-hidden bg-white">
+    <header class="pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden bg-white">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-0">
-
-                <div class="lg:w-5/12 text-center lg:text-left z-10 lg:pr-10">
-                    <div class="inline-flex items-center gap-2 px-4 py-2 mb-8 bg-blue-50 text-brand-blue rounded-full text-sm font-bold border border-blue-100">
-                        <span class="relative flex h-3 w-3">
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                          <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-blue"></span>
-                        </span>
-                        La communauté Tennis n°1 en France
-                    </div>
-
-                    <h1 class="text-5xl lg:text-7xl font-bold mb-6 text-slate-900 leading-tight">
-                        Trouvez votre<br>
-                        <span class="text-gradient">partenaire idéal.</span>
-                    </h1>
-
-                    <p class="text-xl text-slate-500 mb-10 max-w-lg mx-auto lg:mx-0">
-                        MatchUp+ connecte les joueurs locaux, organise vos matchs et booste votre progression. Sécurité, convivialité et performance.
-                    </p>
-
-                    <div id="download" class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a href="#" target="_blank" class="bg-slate-900 text-white px-8 py-4 rounded-xl flex items-center justify-center gap-4 hover:bg-slate-800 transition hover:-translate-y-1 shadow-xl group">
-                            <i class="fa-brands fa-apple text-3xl group-hover:text-brand-blue transition"></i>
-                            <div class="text-left">
-                                <div class="text-[10px] uppercase tracking-wider text-slate-400">Télécharger sur</div>
-                                <div class="font-bold text-lg leading-none">App Store</div>
-                            </div>
-                        </a>
-                        <a href="#" target="_blank" class="bg-slate-900 text-white px-8 py-4 rounded-xl flex items-center justify-center gap-4 hover:bg-slate-800 transition hover:-translate-y-1 shadow-xl group">
-                            <i class="fa-brands fa-google-play text-3xl group-hover:text-brand-blue transition"></i>
-                            <div class="text-left">
-                                <div class="text-[10px] uppercase tracking-wider text-slate-400">Disponible sur</div>
-                                <div class="font-bold text-lg leading-none">Google Play</div>
-                            </div>
-                        </a>
-                    </div>
+            
+            <div class="flex flex-col items-center text-center max-w-4xl mx-auto z-10">
+                
+                <div class="inline-flex items-center gap-2 px-4 py-2 mb-8 bg-blue-50 text-brand-blue rounded-full text-sm font-bold border border-blue-100">
+                    <span class="relative flex h-3 w-3">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-blue"></span>
+                    </span>
+                    La communauté Tennis n°1 en France
                 </div>
 
-                <div class="lg:w-7/12 relative flex justify-center items-center mt-16 lg:mt-0">
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-blue/10 rounded-full blur-3xl -z-10"></div>
-                    
-                    <div class="relative w-full h-[600px] lg:h-[750px] flex items-center justify-center">
+                <h1 class="text-5xl lg:text-7xl font-bold mb-6 text-slate-900 leading-tight">
+                    Trouvez votre<br>
+                    <span class="text-gradient">partenaire idéal.</span>
+                </h1>
 
-                        <div class="absolute z-0 transform -translate-x-10 lg:-translate-x-16 -rotate-6 transition duration-500 hover:z-20 hover:scale-105 hover:rotate-0 origin-bottom-left">
-                            <img
-                                src="assets/screenshot1.png"
-                                alt="App Screen 1"
-                                width="340"
-                                height="680"
-                                class="rounded-[44px] apple-shadow apple-img w-64 lg:w-[340px] h-auto bg-white"
-                            />
+                <p class="text-xl text-slate-500 mb-10 max-w-lg mx-auto">
+                    MatchUp+ connecte les joueurs locaux, organise vos matchs et booste votre progression. Sécurité, convivialité et performance.
+                </p>
+
+                <div id="download" class="flex flex-col sm:flex-row gap-4 justify-center w-full">
+                    <a href="#" target="_blank" class="bg-slate-900 text-white px-8 py-4 rounded-xl flex items-center justify-center gap-4 hover:bg-slate-800 transition hover:-translate-y-1 shadow-xl group">
+                        <i class="fa-brands fa-apple text-3xl group-hover:text-brand-blue transition"></i>
+                        <div class="text-left">
+                            <div class="text-[10px] uppercase tracking-wider text-slate-400">Télécharger sur</div>
+                            <div class="font-bold text-lg leading-none">App Store</div>
                         </div>
-
-                        <div class="absolute z-10 transform translate-x-6 lg:translate-x-12 rotate-3 transition duration-500 hover:scale-105 hover:rotate-0 origin-bottom-right">
-                            <img
-                                src="assets/screenshot2.png"
-                                alt="App Screen 2"
-                                width="340"
-                                height="680"
-                                class="rounded-[44px] apple-shadow apple-img w-64 lg:w-[340px] h-auto bg-white"
-                            />
+                    </a>
+                    <a href="#" target="_blank" class="bg-slate-900 text-white px-8 py-4 rounded-xl flex items-center justify-center gap-4 hover:bg-slate-800 transition hover:-translate-y-1 shadow-xl group">
+                        <i class="fa-brands fa-google-play text-3xl group-hover:text-brand-blue transition"></i>
+                        <div class="text-left">
+                            <div class="text-[10px] uppercase tracking-wider text-slate-400">Disponible sur</div>
+                            <div class="font-bold text-lg leading-none">Google Play</div>
                         </div>
-
-                    </div>
+                    </a>
                 </div>
 
             </div>
-        </div>
+            </div>
     </header>
 
     <section id="features" class="py-24 bg-slate-50 relative">
@@ -324,16 +299,18 @@
                     </a>
                 </div>
 
-                <div class="lg:w-1/2 relative">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-100 to-transparent rounded-[44px] transform rotate-3 scale-105 -z-10"></div>
-                    
-                    <div class="bg-white p-2 rounded-[44px] apple-shadow border border-slate-100 relative overflow-hidden group apple-img">
-                        <div class="absolute top-6 right-6 bg-white/90 backdrop-blur px-4 py-2 rounded-lg shadow-lg z-10 flex items-center gap-2 border border-slate-100">
-                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                            <span class="text-xs font-bold text-slate-700">Vue Joueur</span>
-                        </div>
+                <div class="lg:w-1/2 relative flex justify-center">
+                    <div class="max-w-md mx-auto relative">
+                         <div class="absolute inset-0 bg-gradient-to-tr from-blue-100 to-transparent rounded-[44px] transform rotate-3 scale-105 -z-10"></div>
+                        
+                        <div class="bg-white p-2 rounded-[44px] apple-shadow border border-slate-100 relative overflow-hidden group apple-img">
+                            <div class="absolute top-6 right-6 bg-white/90 backdrop-blur px-4 py-2 rounded-lg shadow-lg z-10 flex items-center gap-2 border border-slate-100">
+                                <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                                <span class="text-xs font-bold text-slate-700">Vue Joueur</span>
+                            </div>
 
-                        <img src="assets/map_club.png" alt="Exemple de club sur la carte MatchUp" class="w-full h-auto rounded-[36px] transform group-hover:scale-[1.02] transition duration-500">
+                            <img src="assets/map_club.png" alt="Exemple de club sur la carte MatchUp" width="400" height="800" class="w-full h-auto rounded-[36px] transform group-hover:scale-[1.02] transition duration-500">
+                        </div>
                     </div>
                 </div>
 
